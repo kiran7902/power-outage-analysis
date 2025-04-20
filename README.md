@@ -1,14 +1,12 @@
-# My Project Title
+# GridLock: Understanding the Factors Behind Long Outages
 
-by Suraj Rampure (rampure@ucsd.edu)
-
-***Note***: If you choose a repo name and title as uninspired as the ones here, I will be quite sad.
+by Kiran Chandrasekaran (kiran7902@gmail.com)
 
 ---
 
 ## Introduction
 
-In this project, we studied the effectiveness of spice challenges in building team morale.
+Need to finish this part
 
 ---
 
