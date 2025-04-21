@@ -33,16 +33,22 @@ In order to do this analysis, I focused on the following columns:
 
 ---
 
-## Cleaning and EDA
+## Data Cleaning and Exploratory Data Analysis
+# Data Cleaning
+The raw dataset contained information gathered over a large period of time and geographic locations. As a result, there were a few cleaning steps necessary to make sure the data could be analyzed later on. First, I had to deal with missing values for the outage duration column. 
 
+ <iframe
+ src="assets/missing_outage_durations.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
 ---
 
 ## Framing a Prediction Problem
 
 
-
-When looking at all the columns in the data, these were the main ones that stood out to me in terms of predicting outage duration. 
-
+---
 
 
 
