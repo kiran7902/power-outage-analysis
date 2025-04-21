@@ -52,7 +52,7 @@ As far as other missing column data goes, I checked all the columns that had mis
 Next, I combined the date and time columns into timestamp columns for both start and restoration times using the pd.to_datetime function. 
 
 
-Next, I dropped all non-relevant columns from the dataset. After this, the dataframe looked like this: 
+Next, I dropped all non-relevant columns from the dataset and only kept the following columns: 'CAUSE.CATEGORY', 'CLIMATE.CATEGORY', 'OUTAGE.START.DT', 'OUTAGE.END.DT', 'CUSTOMERS.AFFECTED', 'TOTAL.PRICE', 'RES.PRICE',  'COM.PRICE',  'IND.PRICE', 'POPULATION', and 'OUTAGE.DURATION'. After this, the dataframe looked like this: 
 
  <iframe
  src="assets/outages_cleaned_df.html"
@@ -60,6 +60,38 @@ Next, I dropped all non-relevant columns from the dataset. After this, the dataf
  height="600"
  frameborder="0"
  ></iframe>
+
+ # Univariate Analysis
+
+
+ <iframe
+ src="assets/distribution_of_outage_durations.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
+
+ # Bivariate Analysis
+
+ <iframe
+ src="assets/price_bins_and_durations.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
+
+ <iframe
+ src="assets/outage_duration_by_category.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
+
+
+ # Interesting Aggregates
+
+
+ # Imputation
 
  ---
 
