@@ -96,7 +96,6 @@ Next, I dropped all non-relevant columns from the dataset and only kept the foll
 
 # Interesting Aggregates
 
- Option 1:
 <iframe
  src="assets/state_data_1.html"
  width="800"
@@ -104,15 +103,7 @@ Next, I dropped all non-relevant columns from the dataset and only kept the foll
  frameborder="0"
  ></iframe>
 
- Option 2: 
-<iframe
- src="assets/state_data_2.html"
- width="800"
- height="600"
- frameborder="0"
- ></iframe>
-
- Choose between the two options and then write a quick couple sentences
+ I chose to look at data on a state by state basis. I aggregated all data for each state and then looked at numbers in 3 colums: total outage count, average outage duration, and average customers affected. This was interesting to look at, and was definitely more impactful for some states with more data than others. For example, the average outage duration in Florida was higher than most others states, which I would guess is because of the severe weather there like hurricanes. Michigan and Wisconsin also had very high average durations, which is probably both due to weather as well as more rural areas with worse repair times.
 
 # Imputation
 
