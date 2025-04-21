@@ -56,8 +56,8 @@ Next, I dropped all non-relevant columns from the dataset and only kept the foll
 
  <iframe
  src="assets/outages_cleaned_df.html"
- width="800"
- height="600"
+ width="10000"
+ height="800"
  frameborder="0"
  ></iframe>
 
@@ -115,15 +115,28 @@ Next, I dropped all non-relevant columns from the dataset and only kept the foll
 
 In this project, I am working on a regression problem. Specifically, I am trying to predict the duration of pwoer outages (in minutes) based on various factors. These factors are all known at the time an outage starts, including price of electiricity in the area, which state the outage is occuring in and its population, the time the outage is happening. Customers affected would be hardest to find out, but is still known at the time of an outage as the company knows how many houses/apartments lost power and can estimate how many people are actually affected. 
 
-I chose outage duration because it is very important to predict as greater outages usually lead to public safety concerns as well as economic losses. To evalulate performance of my model, I am using Root Mean Squared Error (RMSE) as the primary metric. I chose this because it penalizes larger error more heavily and in this case small errors are much better than very large errors (I wouldn't want to predict an outage of 10 hours when it only lasts 10 minutes). 
+I chose outage duration because it is very important to predict as greater outages usually lead to public safety concerns as well as economic losses. To evalulate performance of my model, I am using Root Mean Squared Error (RMSE) as the primary metric. I chose this because it penalizes larger error more heavily and in this case small errors are much better than very large errors (I wouldn't want to predict an outage of 10 hours when it only lasts 10 minutes). I am also going to use R^2 value which will also tell me how well of a predictor my model is (closer to 1 is better).
 
 ---
 
-
-
----
 
 ## Baseline Model
+
+For my baseline model, I built a linear regression model that used features that were more straightforward. I used the number of customers affected, residential, commercial, and industrial electricity prices, and the population of the state. 
+
+After training the model, I measured its performance using two metrics: R^2 and RMSE. The R^2 score was very low at 0.038 which means that 
+
+
+<iframe
+ src="assets/baseline_model_scatter.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
+
+---
+
+## Final Model
 
 CHANGE THIS:
 
@@ -134,10 +147,6 @@ I also engineered two features: START_HOUR, extracted from the outage start time
 Additional features were created to improve model performance, including LOG_CUSTOMERS_AFFECTED (a log transformation to address skewness), and CUST_AFFECTED_PCT_POP (proportion of population impacted), providing better scaling across different states.
 
 I also included RES.PRICE, COM.PRICE, and IND.PRICE, reflecting economic costs of outages, and POPULATION, capturing how heavily populated areas might experience different outage dynamics. These features were selected based on domain knowledge and observed correlations during exploratory data analysis.
----
-
-## Final Model
-
 
 
 
