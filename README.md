@@ -112,12 +112,19 @@ Next, I dropped all non-relevant columns from the dataset and only kept the foll
  frameborder="0"
  ></iframe>
 
- # Imputation
+ Choose between the two options and then write a quick couple sentences
+
+# Imputation
+
+ I decided not to impute values because there was such a small percentage of missing values within the columns I was most interested in. Instead, I just decided to drop rows with missing data and work with rows that had data. I discussed more of the specifics of missing values above in the 'OUTAGE.DURATION' column. 
 
  ---
 
 ## Framing a Prediction Problem
 
+In this project, I am working on a regression problem. Specifically, I am trying to predict the duration of pwoer outages (in minutes) based on various factors. These factors are all known at the time an outage starts, including price of electiricity in the area, which state the outage is occuring in and its population, the time the outage is happening. Customers affected would be hardest to find out, but is still known at the time of an outage as the company knows how many houses/apartments lost power and can estimate how many people are actually affected. 
+
+I chose outage duration because it is very important to predict as greater outages usually lead to public safety concerns as well as economic losses. To evalulate performance of my model, I am using Root Mean Squared Error (RMSE) as the primary metric. I chose this because it penalizes larger error more heavily and in this case small errors are much better than very large errors (I wouldn't want to predict an outage of 10 hours when it only lasts 10 minutes). 
 
 ---
 
@@ -140,23 +147,7 @@ I also included RES.PRICE, COM.PRICE, and IND.PRICE, reflecting economic costs o
 
 ## Final Model
 
-Here's what a Markdown table looks like. Note that the code for this table was generated _automatically_ from a DataFrame, using
 
-```py
-print(counts[['Quarter', 'Count']].head().to_markdown(index=False))
-```
-
-| Quarter     |   Count |
-|:------------|--------:|
-| Fall 2020   |       	Monthly electricity price in the commercial sector (cents/kilowatt-hour) |
-| Winter 2021 |       2 |
-| Spring 2021 |       6 |
-| Summer 2021 |       4 |
-| Fall 2021   |      55 |
-
----
-
-## Hypothesis Testing
 
 
 ---
