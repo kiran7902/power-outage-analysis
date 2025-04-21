@@ -138,15 +138,6 @@ After training the model, I measured its performance using two metrics: R^2 and 
 
 ## Final Model
 
-CHANGE THIS:
-
-For my final model predicting outage duration, I selected and engineered a total of 14 features. I kept basic information such as MONTH, CAUSE.CATEGORY, U.S._STATE, NERC.REGION, CUSTOMERS.AFFECTED, and DEMAND.LOSS.MW, as they provide important context about the timing, location, and cause of the outages.
-
-I also engineered two features: START_HOUR, extracted from the outage start time to capture patterns by time of day, and IS_SUMMER, a binary indicator for whether the outage occurred in summer months (June–August), when outages are often longer due to heat-related demand stress.
-
-Additional features were created to improve model performance, including LOG_CUSTOMERS_AFFECTED (a log transformation to address skewness), and CUST_AFFECTED_PCT_POP (proportion of population impacted), providing better scaling across different states.
-
-I also included RES.PRICE, COM.PRICE, and IND.PRICE, reflecting economic costs of outages, and POPULATION, capturing how heavily populated areas might experience different outage dynamics. These features were selected based on domain knowledge and observed correlations during exploratory data analysis.
 
 
 
