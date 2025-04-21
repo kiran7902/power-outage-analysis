@@ -1,21 +1,17 @@
 # GridLock: Understanding the Factors Behind Long Outages
 
-by Kiran Chandrasekaran (kiran7902@gmail.com)
-
+by Kiran Chandrasekaran (kirancha@umich.edu)
 ---
 
 ## Introduction
 
-Need to finish this part
+For this project, I looked at a power outages dataset from Purdue University that looks at data from January 2000 to July 2016. This dataset contains 1476 rows and 56 columns. First, I will clean the data and perform exploratory analysis. Next, I will focus on answering this question: 
 
----
+What factors are most associated with the duration of power outages, and can we accurately predict outage duration based on those factors?
 
-## Cleaning and EDA
+I picked this question because understanding what drives longer outage durations is important for the people affected, as well as utility companies and policy makers. Quicker restorations reduce economic losses and also improve life for those affected. 
 
----
-
-## Framing a Prediction Problem
-
+In order to do this analysis, I focused on the following columns: 
 
 | Column Name             | Description |
 |:------------------------|:------------|
@@ -33,6 +29,20 @@ Need to finish this part
 | IS_SUMMER                | Binary indicator if the outage occurred during summer months (June–August) |
 | LOG_CUSTOMERS_AFFECTED   | Natural logarithm of customers affected (to reduce skewness) |
 | CUST_AFFECTED_PCT_POP    | Percentage of the state’s population that was affected by the outage |
+| OUTAGE.DURATION          | Duration of outage events (in minutes) |
+
+---
+
+## Cleaning and EDA
+
+---
+
+## Framing a Prediction Problem
+
+
+
+When looking at all the columns in the data, these were the main ones that stood out to me in terms of predicting outage duration. 
+
 
 
 
