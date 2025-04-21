@@ -34,7 +34,7 @@ In order to do this analysis, I focused on the following columns:
 ---
 
 ## Data Cleaning and Exploratory Data Analysis
-# Data Cleaning
+### Data Cleaning
 The raw dataset contained information gathered over a large period of time and geographic locations. As a result, there were a few cleaning steps necessary to make sure the data could be analyzed later on. First, I had to deal with missing values for the outage duration column. Below is a graph of all missing data amounts for outage durations:
 
  <iframe
@@ -56,12 +56,12 @@ Next, I dropped all non-relevant columns from the dataset and only kept the foll
 
  <iframe
  src="assets/outages_cleaned_df.html"
- width="10000"
- height="800"
+ width="800"
+ height="400"
  frameborder="0"
  ></iframe>
 
-# Univariate Analysis
+#### Univariate Analysis
 
  First, I created a histogram of only outage durations to examine how outages varied in length. I found that most are very short, but there are some outliers that lasted much longer. The longest power outage in the database lasted over 75 days. 
 
@@ -73,7 +73,7 @@ Next, I dropped all non-relevant columns from the dataset and only kept the foll
  ></iframe>
 
 
-# Bivariate Analysis
+#### Bivariate Analysis
 
  Next, I looked at outage duration by the price of electricity. I found that on average, the more expensive electricity was, the shorter the outages were. 
 
@@ -94,7 +94,7 @@ Next, I dropped all non-relevant columns from the dataset and only kept the foll
  ></iframe>
 
 
-# Interesting Aggregates
+### Interesting Aggregates
 
 <iframe
  src="assets/state_data_1.html"
@@ -105,13 +105,13 @@ Next, I dropped all non-relevant columns from the dataset and only kept the foll
 
  I chose to look at data on a state by state basis. I aggregated all data for each state and then looked at numbers in 3 colums: total outage count, average outage duration, and average customers affected. This was interesting to look at, and was definitely more impactful for some states with more data than others. For example, the average outage duration in Florida was higher than most others states, which I would guess is because of the severe weather there like hurricanes. Michigan and Wisconsin also had very high average durations, which is probably both due to weather as well as more rural areas with worse repair times.
 
-# Imputation
+### Imputation
 
  I decided not to impute values because there was such a small percentage of missing values within the columns I was most interested in. Instead, I just decided to drop rows with missing data and work with rows that had data. I discussed more of the specifics of missing values above in the 'OUTAGE.DURATION' column. 
 
  ---
 
-## Framing a Prediction Problem
+# Framing a Prediction Problem
 
 In this project, I am working on a regression problem. Specifically, I am trying to predict the duration of pwoer outages (in minutes) based on various factors. These factors are all known at the time an outage starts, including price of electiricity in the area, which state the outage is occuring in and its population, the time the outage is happening. Customers affected would be hardest to find out, but is still known at the time of an outage as the company knows how many houses/apartments lost power and can estimate how many people are actually affected. 
 
@@ -120,11 +120,11 @@ I chose outage duration because it is very important to predict as greater outag
 ---
 
 
-## Baseline Model
+# Baseline Model
 
-For my baseline model, I built a linear regression model that used features that were more straightforward. I used the number of customers affected, residential, commercial, and industrial electricity prices, and the population of the state. 
+For my baseline model, I built a linear regression model that used features that were more straightforward. After initially trying to predict raw outage duration wiht my model and being unsuccessful (R^2 < 0.01), I decided to log transform outage duration to see if that would improve my model. I did this because there are some huge outliers within outage duration that completely throw off the model. The RMSE was 2.122 log-minutes, which means that on average our model is off by e^2.1 or 8.17 times. This is not great, because it means that if the outage duration was 100 minutes, this model may predict anywhere between 12 minutes and 800 minutes. 
 
-After training the model, I measured its performance using two metrics: R^2 and RMSE. The R^2 score was very low at 0.038 which means that 
+After training the model, I measured its performance using two metrics: R^2 and RMSE. The R^2 score was very low at 0.038 which means that only about 4% of the variation which is not a good result. I converted the RMSE back to minutes to make it easier to understand and found that it was 3625 minutes, which is also not great. 
 
 
 <iframe
@@ -136,7 +136,7 @@ After training the model, I measured its performance using two metrics: R^2 and 
 
 ---
 
-## Final Model
+# Final Model
 
 
 
@@ -145,6 +145,25 @@ After training the model, I measured its performance using two metrics: R^2 and 
 
 
 fig.write_html('../power-outage-analysis/assets/missing_outage_durations.html', include_plotlyjs='cdn')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
