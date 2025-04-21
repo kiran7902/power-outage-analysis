@@ -1,5 +1,4 @@
-# GridLock: Understanding the Factors Behind Long Outages
-
+# GridLock: Predicting Power Outage Durations
 by Kiran Chandrasekaran (kirancha@umich.edu)
 ---
 
@@ -138,14 +137,15 @@ After training the model, I measured its performance using two metrics: R^2 and 
 
 # Final Model
 
-
+<iframe
+ src="assets/final_model_scatter.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
 
 
 ---
-
-
-fig.write_html('../power-outage-analysis/assets/missing_outage_durations.html', include_plotlyjs='cdn')
-
 
 
 
