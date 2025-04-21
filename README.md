@@ -35,7 +35,7 @@ In order to do this analysis, I focused on the following columns:
 
 ## Data Cleaning and Exploratory Data Analysis
 # Data Cleaning
-The raw dataset contained information gathered over a large period of time and geographic locations. As a result, there were a few cleaning steps necessary to make sure the data could be analyzed later on. First, I had to deal with missing values for the outage duration column. 
+The raw dataset contained information gathered over a large period of time and geographic locations. As a result, there were a few cleaning steps necessary to make sure the data could be analyzed later on. First, I had to deal with missing values for the outage duration column. Below is a graph of all missing data amounts for outage durations:
 
  <iframe
  src="assets/missing_outage_durations.html"
@@ -44,6 +44,24 @@ The raw dataset contained information gathered over a large period of time and g
  frameborder="0"
  ></iframe>
 ---
+
+You can see both the percent missing and the actual number missing by hovering over each bar. For example, California has 12 missing values but only 5.7% missing values. I decided to drop all rows with missing values since it was a very small percentage of total values and it wouldn't make sense to impute random durations with these rows. Furthermore, I decided to drop all rows with values of 0 for outage duration since this isn't really possible and these are probaly just missing values. 
+
+As far as other missing column data goes, I checked all the columns that had missing values and saw that the only columns that were missing values that I planned on using were the price columns, all of which were missing 12 values. Since this is such a low number, I decided to drop all of these rows. These also turned out to be the same 12 rows, so I just dropped 12 rows. 
+
+Next, I combined the date and time columns into timestamp columns for both start and restoration times using the pd.to_datetime function. 
+
+
+Next, I dropped all non-relevant columns from the dataset. After this, the dataframe looked like this: 
+
+ <iframe
+ src="assets/outages_cleaned_df.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
+
+ ---
 
 ## Framing a Prediction Problem
 
@@ -89,3 +107,10 @@ print(counts[['Quarter', 'Count']].head().to_markdown(index=False))
 
 
 ---
+
+
+fig.write_html('../power-outage-analysis/assets/missing_outage_durations.html', include_plotlyjs='cdn')
+
+
+
+
