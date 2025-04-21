@@ -16,6 +16,18 @@ Need to finish this part
 
 ## Framing a Prediction Problem
 
+| Quarter     |   Count |
+|:------------|--------:|
+| CUSTOMERS.AFFECTED | Monthly electricity price in the commercial sector (cents/kilowatt-hour) |
+| RES.PRICE |       2 |
+| COM.PRICE |       6 |
+| IND.PRICE |       4 |
+| POPULATION   |      55 |
+
+'',
+    'RES.PRICE', 'COM.PRICE', 'IND.PRICE',
+    'POPULATION'
+
 ---
 
 ## Baseline Model
@@ -32,7 +44,7 @@ print(counts[['Quarter', 'Count']].head().to_markdown(index=False))
 
 | Quarter     |   Count |
 |:------------|--------:|
-| Fall 2020   |       3 |
+| Fall 2020   |       	Monthly electricity price in the commercial sector (cents/kilowatt-hour) |
 | Winter 2021 |       2 |
 | Spring 2021 |       6 |
 | Summer 2021 |       4 |
