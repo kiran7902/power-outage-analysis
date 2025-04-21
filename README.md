@@ -63,6 +63,7 @@ Next, I dropped all non-relevant columns from the dataset and only kept the foll
 
  # Univariate Analysis
 
+ First, I created a histogram of only outage durations to examine how outages varied in length. I found that most are very short, but there are some outliers that lasted much longer. The longest power outage in the database lasted over 75 days. 
 
  <iframe
  src="assets/distribution_of_outage_durations.html"
@@ -71,7 +72,10 @@ Next, I dropped all non-relevant columns from the dataset and only kept the foll
  frameborder="0"
  ></iframe>
 
+
  # Bivariate Analysis
+
+ Next, I looked at outage duration by the price of electricity. I found that on average, the more expensive electricity was, the shorter the outages were. 
 
  <iframe
  src="assets/price_bins_and_durations.html"
@@ -79,6 +83,8 @@ Next, I dropped all non-relevant columns from the dataset and only kept the foll
  height="600"
  frameborder="0"
  ></iframe>
+
+ For another bivariate analysis, I looked at outage durations by cause categories. I found that severe weather and fuel supply warnings led to the most severe outages by length. This makes sense as without fuel it would hard to resolve issues, and severe weather can make it hard to get power back if the damage is very severe. 
 
  <iframe
  src="assets/outage_duration_by_category.html"
@@ -90,6 +96,21 @@ Next, I dropped all non-relevant columns from the dataset and only kept the foll
 
  # Interesting Aggregates
 
+ Option 1:
+<iframe
+ src="assets/state_data_1.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
+
+ Option 2: 
+<iframe
+ src="assets/state_data_2.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
 
  # Imputation
 
