@@ -123,7 +123,7 @@ I chose outage duration because it is very important to predict as greater outag
 
 For my baseline model, I built a linear regression model that used features that were more straightforward. After initially trying to predict raw outage duration wiht my model and being unsuccessful (R^2 < 0.01), I decided to log transform outage duration to see if that would improve my model. I did this because there are some huge outliers within outage duration that completely throw off the model. The RMSE was 2.122 log-minutes, which means that on average our model is off by e^2.1 or 8.17 times. This is not great, because it means that if the outage duration was 100 minutes, this model may predict anywhere between 12 minutes and 800 minutes. 
 
-After training the model, I measured its performance using two metrics: R^2 and RMSE. The R^2 score was very low at 0.038 which means that only about 4% of the variation which is not a good result. I converted the RMSE back to minutes to make it easier to understand and found that it was 3625 minutes, which is also not great. 
+After training the model, I measured its performance using two metrics: R^2 and RMSE. The R^2 score was very low at 0.038 which means that only about 4% of the variation which is not a good result. 
 
 
 <iframe
@@ -133,9 +133,17 @@ After training the model, I measured its performance using two metrics: R^2 and 
  frameborder="0"
  ></iframe>
 
+ This scatter plot shows that the scatter plot leaves a lot to be desired as many of the actual values are very far from the predicted values. 
+
 ---
 
 # Final Model
+
+To build my final model, I expanded on my baseline linear regression model by engineering new features and tuning hyperparameters to improve prediction accuracy. First, I created two new features. First, I created 'CUSTOMERS_AFFECTED_per_POPULATION' which I calculated by dividing the number of customers affected by the population of a given state. Next, I also created a new 'TOTAL.PRICE' feature that was the average of industrial, residential, and commerical prices. This was different than the existing 'TOTAL.PRICE' feature that was just the average of the entire area, not the average of these three rates. 
+
+Similar to the baseline model, I once again applied a log transformation to the target variable ('OUTAGE.DURATION') because it is highly skewed. This stabilized variabce and made the relationship between the predicting variables and the target more linear, which is important for Ridge Regression. For preprocessing, I built a pipeline that log-transformed the numerical features, scaled tem with a StandardScaler, and one-hot encoded the categorial feature 'CAUSE.CATEGORY'. 
+
+For hyperparemeter tuning, I used GridSearch CV to search over different values of Ridge regularation strength. After tuning, the ebst alpha was found to be 0.1. 
 
 <iframe
  src="assets/final_model_scatter.html"
@@ -143,6 +151,12 @@ After training the model, I measured its performance using two metrics: R^2 and 
  height="600"
  frameborder="0"
  ></iframe>
+
+ This scatter plot shows much improvement over the baseline, as predicted log-durations are more often closer to the actual durations. 
+
+This final model achieved an R^2 score of 0.401 and a RMSE of 1.665 in log-minutes which was lower than the baseline model that was above 2 log-minutes. This R^2 score means that our model explains baout 40% of the variatiopn in the log-transformed outage durations. This is a meaninful improvement over the baseline model that had an R^2 relatively close to 0. Although this model is far from perfect, it is still much better than the original baseline model for predicting durations based on customer impact, energy prices, population size, and outage causes. 
+
+
 
 
 ---
