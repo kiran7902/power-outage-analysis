@@ -33,7 +33,7 @@ In order to do this analysis, I focused on the following columns:
 ---
 
 ## Data Cleaning and Exploratory Data Analysis
-### Data Cleaning
+#### Data Cleaning
 The raw dataset contained information gathered over a large period of time and geographic locations. As a result, there were a few cleaning steps necessary to make sure the data could be analyzed later on. First, I had to deal with missing values for the outage duration column. Below is a graph of all missing data amounts for outage durations:
 
  <iframe
@@ -93,7 +93,7 @@ Next, I dropped all non-relevant columns from the dataset and only kept the foll
  ></iframe>
 
 
-### Interesting Aggregates
+#### Interesting Aggregates
 
 <iframe
  src="assets/state_data_1.html"
@@ -104,7 +104,7 @@ Next, I dropped all non-relevant columns from the dataset and only kept the foll
 
  I chose to look at data on a state by state basis. I aggregated all data for each state and then looked at numbers in 3 colums: total outage count, average outage duration, and average customers affected. This was interesting to look at, and was definitely more impactful for some states with more data than others. For example, the average outage duration in Florida was higher than most others states, which I would guess is because of the severe weather there like hurricanes. Michigan and Wisconsin also had very high average durations, which is probably both due to weather as well as more rural areas with worse repair times.
 
-### Imputation
+#### Imputation
 
  I decided not to impute values because there was such a small percentage of missing values within the columns I was most interested in. Instead, I just decided to drop rows with missing data and work with rows that had data. I discussed more of the specifics of missing values above in the 'OUTAGE.DURATION' column. 
 
